@@ -1,0 +1,187 @@
+body {
+  padding-top: 80px;
+}
+
+.img-hover-zoom {
+    height: 300px; /* [1.1] Set it as per your need */
+    overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+  }
+  
+  /* [2] Transition property for smooth transformation of images */
+  .img-hover-zoom img {
+    transition: transform .5s ease;
+  }
+  
+  /* [3] Finally, transforming the image when container gets hovered */
+  .img-hover-zoom:hover img {
+    transform: scale(1.5);
+  }
+  /* Quick-zoom Container */
+.img-hover-zoom--quick-zoom img {
+    transform-origin: 0 0;
+    transition: transform .25s, visibility .25s ease-in;
+  }
+  
+  /* The Transformation */
+  .img-hover-zoom--quick-zoom:hover img {
+    transform: scale(2);
+  }
+  /* Point-zoom Container */
+.img-hover-zoom--point-zoom img {
+    transform-origin: 65% 75%;
+    transition: transform 1s, filter .5s ease-out;
+  }
+  
+  /* The Transformation */
+  .img-hover-zoom--point-zoom:hover img {
+    transform: scale(5);
+  }
+  /* Slow-motion Zoom Container */
+.img-hover-zoom--slowmo img {
+    transform-origin: 50% 65%;
+    transition: transform 5s, filter 3s ease-in-out;
+    filter: brightness(150%);
+  }
+  
+  /* The Transformation */
+  .img-hover-zoom--slowmo:hover img {
+    filter: brightness(100%);
+    transform: scale(3);
+  }
+  /* Brightness-zoom Container */
+.img-hover-zoom--brightness img {
+    transition: transform 2s, filter 1.5s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(50%);
+  }
+  
+  /* The Transformation */
+  .img-hover-zoom--brightness:hover img {
+    filter: brightness(100%);
+    transform: scale(1.3);
+  }
+  /* Horizontal Zoom-n-pan Container */
+.img-hover-zoom--zoom-n-pan-h img {
+    transition: transform .5s ease-in-out;
+    transform: scale(1.4);
+    transform-origin: 100% 0;
+  }
+  
+  /* The Transformation */
+  .img-hover-zoom--zoom-n-pan-h:hover img {
+    transform: scale(1.5) translateX(30%);
+  }
+  /* Vertical Zoom-n-pan Container */
+.img-hover-zoom--zoom-n-pan-v img {
+    transition: transform .5s ease-in-out;
+    transform: scale(1.4);
+    transform-origin: 0 0;
+  }
+  
+  /* The Transformation */
+  .img-hover-zoom--zoom-n-pan-v:hover img {
+    transform: scale(1.25) translateY(-30%);
+  }
+  /* Blur-zoom Container */
+.img-hover-zoom--blur img {
+    transition: transform 1s, filter 2s ease-in-out;
+    filter: blur(2px);
+    transform: scale(1.2);
+  }
+  
+  /* The Transformation */
+  .img-hover-zoom--blur:hover img {
+    filter: blur(0);
+    transform: scale(1);
+  }
+  /* Colorize-zoom Container */
+.img-hover-zoom--colorize img {
+    transition: transform .5s, filter 1.5s ease-in-out;
+    filter: grayscale(100%);
+  }
+  
+  /* The Transformation */
+  .img-hover-zoom--colorize:hover img {
+    filter: grayscale(0);
+    transform: scale(1.1);
+  }
+
+  /* Jonathan Code */
+  .projectList {
+    display: inline-block;
+    width: 98vw;
+    margin-left: 1vw;
+    margin-right: auto;
+   }
+/* text overlay overall code*/
+   .container {
+    display: block;
+    position: relative;
+    padding-left: 0%;
+    padding-right: 0%;
+    margin-top: 2vh;
+    width: 100%;
+  }
+
+  @media only screen and (min-width: 1000px) {
+  /* Jonathan Code */
+  .projectList {
+    display: inline-block;
+    width: 50vw;
+    margin-left: 25vw;
+    margin-right: auto;
+   }
+/* text overlay overall code*/
+   .container {
+    display: inline-block;
+    position: relative;
+    margin-top: 0vh;
+    width: 49%;
+  }
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.75;
+    transition: .5s ease;
+    background-color:#ffffff18;
+  }
+
+  .container:hover .overlay {
+    opacity: 0;
+  }
+  
+  .text {
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: Arial Black,Arial Bold,Gadget,sans-serif; 
+
+  }
+/* Footer */
+  footer{
+    background-image: linear-gradient(rgba(185, 184, 184, 0.65), rgb(255, 255, 255));
+    text-align: center;
+    padding:15px;
+  }
+  .foot{
+    color:#494949;
+  }
+ 
