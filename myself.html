@@ -1,0 +1,284 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <title>Jonathan Wang's Portfolio</title>
+      <link rel="icon" type="img/png" href="support/img/JJLogo.png">
+
+  <style>
+  body {
+        background: rgb(223, 222, 222);
+        padding-top:90px;
+      }
+      
+      h1 {
+        color: white;
+      }
+      p{
+          font-size:1.5em;
+    } 
+
+     .topBand{
+       display:block;
+       width:88vw;
+       padding-left:10vw;
+       padding-right:auto;
+       padding-bottom:2vh;
+        }
+      .description {
+        display:inline-block;
+        width:58vw;
+        padding-left:10vw;
+        padding-right:2vw;
+      }
+      .profile {
+        display:inline-block;
+        width:30vw;
+        padding-left:0;
+        padding-right:auto;
+      }
+      @media only screen and (max-width: 1000px) {
+        .topband{
+            width:98vw;
+        padding-left:1vw;
+        padding-right:auto;
+        }
+        .description {
+        display:block;
+        width:80vw;
+        padding-left:10vw;
+        padding-right:auto;
+        text-align:center;
+      }
+      .profile {
+        display:block;
+        width:60vw;
+        padding-left:20vw;
+        padding-right:auto;
+      }
+    } 
+      #output {
+        border: 0px solid rgb(180, 180, 180);
+        width: 100%;
+      }
+      #images img {
+        width: 0px;
+        height: auto;
+      }
+      /* Footer */
+        footer{
+  background-image: linear-gradient(rgba(185, 184, 184, 0.65), rgb(255, 255, 255));
+  text-align: center;
+  padding:15px;
+  padding-top:60px;
+        }
+        .foot{
+         color:#494949;
+        }
+      </style>
+      
+  </head>
+
+<body >
+
+        <header >
+                <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+                    <div class="container">
+                      <a class="navbar-brand" href="#">Jonathan's Portfolio</a>
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                      <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                          <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Main Page
+                                  <span class="sr-only">(current)</span>
+                                </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Projects</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Design Concept</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+                </header>
+
+        <script src="support/js/imageLoad.js"></script>
+
+        <div class="topBand">
+                <img src="support/img/CasinoOpening/teamShot.jpg" width=100%  alt="c" />
+            </div>
+
+        <div class="self-presentation">
+        <div class="description">
+        <h1>About Me</h1>
+        <p>I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.
+            I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.
+            I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.
+            I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.
+            I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.
+            I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.
+            I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.
+            I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.
+            I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.I suck at drawing the maps, need to create a better one.
+            
+
+        </p>
+    </div>
+    <div id="wrap" class="profile shadow">
+        <canvas id="output" width=770px height=770px></canvas>
+    </div>
+</div>
+    <div id="images">
+        <img id="source" src="support/img/profilpic/jonathan.jpg" alt="a" crossOrigin = "Anonymous"/>
+        <img id="map" src="support/img/profilpic/JoMap.jpg" alt="b" crossOrigin = "Anonymous"/>
+    </div>
+    <script>
+        console.clear();
+
+            // Maximum distance for xy displacement offset
+            var DRIFT_RANGE = 10;
+            
+            // Create/cache canvases and contexts for source image, 
+            // displacement map, and output
+            var cOutput = document.getElementById('output'),
+                ctxOutput = cOutput.getContext('2d'),
+            
+                cSource = document.createElement('canvas'),
+                ctxSource = cSource.getContext('2d'),
+            
+                cMap = document.createElement('canvas'),
+                ctxMap = cMap.getContext('2d'),
+            
+                images = document.querySelectorAll('#images img');
+            
+            // Ensure all canvases are the same size
+            var cw = cSource.width = cMap.width = cOutput.width;
+            var ch = cSource.height = cMap.height = cOutput.height;
+            
+            // Refs for the image data
+            var sourceData, mapData,
+                outputData = ctxOutput.createImageData(cw, ch);
+            
+            function update() {
+                // Calculate the xy drift based on the current time.
+                // y drift is half-speed
+                // TODO: make interactive (mouse, gyro, etc)
+                var t = 0.002 * Date.now(),
+                    dx = Math.sin(t) * DRIFT_RANGE,
+                    dy = Math.cos(t * 0.5) * DRIFT_RANGE;
+            
+                // Iterate the xy grid
+                // TODO: optimize this!
+                for (var y = 0; y < ch; y++) {
+                    for (var x = 0; x < cw; x++) {
+            
+                        // Get the greyscale value from the displacement map as a value between 0 and 1
+                        // 0 = black (farthest), 1 = white (nearest)
+                        // Higher values will be more displaced
+                        var pix = y * cw + x,
+                            arrayPos = pix * 4,
+                            depth = mapData[arrayPos] / 255;
+            
+                        // Use the greyscale value as a percentage of our current drift,
+                        // and calculate an xy pixel offset based on that
+                        var ofs_x = Math.round(x + (dx * depth)),
+                            ofs_y = Math.round(y + (dy * depth));
+            
+                        // Clamp the offset to the canvas dimensions
+                        if (ofs_x < 0) ofs_x = 0;
+                        if (ofs_x > cw - 1) ofs_x = cw - 1;
+                        if (ofs_y < 0) ofs_y = 0;
+                        if (ofs_y > ch - 1) ofs_y = ch - 1;
+            
+                        // Get the colour from the source image at the offset xy position,
+                        // and transfer it to our output at the original xy position
+                        var targetPix = ofs_y * cw + ofs_x,
+                            targetPos = targetPix * 4;
+                        outputData.data[arrayPos] = sourceData[targetPos];
+                        outputData.data[arrayPos + 1] = sourceData[targetPos + 1];
+                        outputData.data[arrayPos + 2] = sourceData[targetPos + 2];
+                        outputData.data[arrayPos + 3] = sourceData[targetPos + 3];
+                    }
+                }
+            }
+            
+            function render() {
+                ctxOutput.putImageData(outputData, 0, 0);
+            }
+            
+            function loop() {
+                requestAnimationFrame(loop);
+                update();
+                render();
+            }
+            
+            function init() {
+                // Write our source image and displacement map to in-memory
+                // canvases and cache the data (it never gets directly manipulated)
+            
+                var sourceImg = images[0],
+                    mapImg = images[1];
+            
+                    
+
+                ctxSource.drawImage(sourceImg, 0, 0);
+                sourceData = ctxSource.getImageData(0, 0, cw, ch).data;
+            
+                ctxMap.drawImage(mapImg, 0, 0);
+                mapData = ctxMap.getImageData(0, 0, cw, ch).data;
+            
+                console.log('Source and map data cached');
+            
+                // Kick off the update-render loop
+                loop();
+            }
+            
+            // Wait for images to load before starting
+            imagesLoaded(images, function() {
+                console.log('Images loaded');
+                init();
+            });</script>
+
+<footer>
+    <p class="foot"> Tel：514 560-9766
+        <br/>
+        Wechat：zibawss
+        <br/>
+        Email：interiorwang@gmail.com
+        <br/>
+</p >
+    <img src = "support/img/JJLogo.png" width = "40px" alt = "Jay&Joe Logo">
+    <p class="foot">All Rights Reserved to Jonathan's Potfolio, Thanks for Visiting!</p>
+    
+</footer>
+
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
